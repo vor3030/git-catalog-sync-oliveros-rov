@@ -3,14 +3,21 @@ function isValidLoan(daysLate) {
 }
 
 function calculateLateFee(daysLate, ratePerDay) {
-<<<<<<< HEAD
-  return Math.round(daysLate * ratePerDay);
-=======
-  if(daysLate <= 1) {
+  if (daysLate <= 1) {
     return 0;
   }
-  return Math.floor(daysLate * ratePerDay);
->>>>>>> origin/feature/late-fee-policy
+  
+  let fee = daysLate * ratePerDay;
+  if (fee > 20) {
+    fee = 20;
+  }
+  
+  return Math.round(fee);
+}
+  
+  return Math.round(fee);
+}
+
 }
 
 module.exports = { isValidLoan, calculateLateFee };
